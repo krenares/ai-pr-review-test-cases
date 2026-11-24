@@ -1,8 +1,4 @@
 // Sum positive finite numbers in input order.
 export function sumPositive(values: readonly number[]): number {
-  let total = 0;
-  for (const value of values) {
-    if (value > 0) total += value;
-  }
-  return total;
+  return values.filter(value => value > 0).reduce((total, value) => total + value, 0);
 }
