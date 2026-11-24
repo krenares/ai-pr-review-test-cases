@@ -1,7 +1,15 @@
 "use strict";
 // Preserve left order and duplicates; each left item appears once if present on right.
 function matchingIds(left, right) {
-  const allowed = new Set(right);
-  return left.filter(id => allowed.has(id));
+  const result = [];
+  for (const id of left) {
+    for (const candidate of right) {
+      if (id === candidate) {
+        result.push(id);
+        break;
+      }
+    }
+  }
+  return result;
 }
 module.exports = { matchingIds };
